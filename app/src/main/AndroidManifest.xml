@@ -12,12 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookinglapangan">
         <activity
-            android:name=".LoginActivity"
+            android:name=".BookingActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
