@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_card"
+    android:layout_marginBottom="15dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgLapangan"
+        android:src="@drawable/lapangan_sample"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvNamaLapangan"
+                android:text="Lapangan Futsal A"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:text="Selesai"
+                android:textColor="#FF0000"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTanggal"
+            android:text="14 Nov 2025"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/tvWaktu"
+            android:text="09.00 - 10.00"
+            android:layout_marginTop="2dp"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvHarga"
+            android:text="Rp. 75.000/jam"
+            android:textSize="14sp"
+            android:textColor="#005BBB"
+            android:layout_marginTop="2dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnAksi1"
+                android:text="Pesan Lagi"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"/>
+
+            <Button
+                android:id="@+id/btnAksi2"
+                android:text="Lihat Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
