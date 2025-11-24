@@ -28,28 +28,28 @@ class RiwayatActivity : AppCompatActivity() {
 
         val data = listOf(
             RiwayatModel(
-                nama = "Lapangan Futsal A",
-                tanggal = "14 Nov 2025",
-                waktu = "09.00 - 10.00",
-                harga = "Rp. 75.000/jam",
-                status = "Selesai",
-                gambar = R.drawable.lapangan_sample
+                "Lapangan Futsal A",
+                "14 Nov 2025",
+                "09.00 - 10.00",
+                "Rp. 75.000/jam",
+                "Selesai",
+                R.drawable.lapangan1
             ),
             RiwayatModel(
-                nama = "Lapangan Futsal A",
-                tanggal = "14 Nov 2025",
-                waktu = "10.00 - 11.00",
-                harga = "Rp. 75.000/jam",
-                status = "Berlangsung",
-                gambar = R.drawable.lapangan_sample
+                "Lapangan Futsal A",
+                "14 Nov 2025",
+                "10.00 - 11.00",
+                "Rp. 75.000/jam",
+                "Berlangsung",
+                R.drawable.lapangan1
             ),
             RiwayatModel(
-                nama = "Lapangan Futsal B",
-                tanggal = "19 Nov 2025",
-                waktu = "13.00 - 14.00",
-                harga = "Rp. 65.000/jam",
-                status = "Akan Datang",
-                gambar = R.drawable.lapangan_sample
+                "Lapangan Futsal B",
+                "19 Nov 2025",
+                "13.00 - 14.00",
+                "Rp. 65.000/jam",
+                "Akan Datang",
+                R.drawable.lapangan2
             )
         )
 
