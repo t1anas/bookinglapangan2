@@ -1,5 +1,14 @@
 package com.example.bookinglapangan
 
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
 class RiwayatAdapter(
     private val list: List<RiwayatModel>,
     private val onClick: (RiwayatModel) -> Unit
@@ -32,7 +41,7 @@ class RiwayatAdapter(
         holder.tvHarga.text = item.harga
         holder.tvStatus.text = item.status
 
-        // Warna status
+        // warna status
         holder.tvStatus.setTextColor(
             when (item.status) {
                 "Selesai" -> Color.RED
@@ -42,10 +51,14 @@ class RiwayatAdapter(
             }
         )
 
-        // Tombol sesuai status
+        // tombol dinamis
         when (item.status) {
             "Selesai" -> {
                 holder.btn1.text = "Pesan Lagi"
+                holder.btn2.visibility = View.GONE
+            }
+            "Berlangsung" -> {
+                holder.btn1.text = "Lihat Detail"
                 holder.btn2.visibility = View.GONE
             }
             "Akan Datang" -> {
@@ -53,17 +66,11 @@ class RiwayatAdapter(
                 holder.btn2.text = "Lihat Detail"
                 holder.btn2.visibility = View.VISIBLE
             }
-            "Berlangsung" -> {
-                holder.btn1.text = "Lihat Detail"
-                holder.btn2.visibility = View.GONE
-            }
         }
 
         holder.btn1.setOnClickListener { onClick(item) }
         holder.btn2.setOnClickListener { onClick(item) }
     }
 
-    override fun getItemCount() = list.size
-}
-
+    override fun getItemCount(): Int = list.size
 }
