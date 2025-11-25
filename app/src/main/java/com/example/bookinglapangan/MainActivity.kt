@@ -1,17 +1,17 @@
 package com.example.bookinglapangan
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.bookinglapangan.R
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)   // ganti sesuai nama XML kamu
+        setContentView(R.layout.activity_main)
 
         // --- Ambil ID dari XML ---
         val txtNamaLapangan = findViewById<TextView>(R.id.txtNamaLapangan)
@@ -29,22 +29,22 @@ class MainActivity : AppCompatActivity() {
 
         iconNotification.setOnClickListener {
             Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
-            // TODO: Arahkan ke NotifikasiActivity
         }
 
         iconProfile.setOnClickListener {
             Toast.makeText(this, "Profil dibuka", Toast.LENGTH_SHORT).show()
-            // TODO: Arahkan ke ProfileActivity
         }
 
         btnPesan.setOnClickListener {
             Toast.makeText(this, "Menu Pemesanan dibuka", Toast.LENGTH_SHORT).show()
-            // TODO: startActivity(Intent(this, PesanActivity::class.java))
+
+            // --- INI YANG BENER: buka BookingActivity ---
+            startActivity(Intent(this, BookingActivity::class.java))
         }
 
         btnRiwayat.setOnClickListener {
             Toast.makeText(this, "Riwayat Pemesanan dibuka", Toast.LENGTH_SHORT).show()
-            // TODO: startActivity(Intent(this, RiwayatActivity::class.java))
+            startActivity(Intent(this, RiwayatActivity::class.java))
         }
 
         // --- Contoh update data dinamis (opsional) ---
