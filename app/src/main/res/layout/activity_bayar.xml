@@ -11,15 +11,49 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- HEADER -->
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- TOP BAR WITH TITLE AND ICONS -->
+        <LinearLayout
+            android:id="@+id/topBarLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pembayaran"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#212121"
-            android:layout_marginBottom="20dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pembayaran"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#212121" />
+
+            <!-- Notification Icon -->
+            <TextView
+                android:id="@+id/iconNotification"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🔔"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Notifikasi" />
+
+            <!-- Profile Icon -->
+            <TextView
+                android:id="@+id/iconProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="👤"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background"
+                android:contentDescription="Profil" />
+
+        </LinearLayout>
 
         <!-- CARD DETAIL PESANAN -->
         <androidx.cardview.widget.CardView
