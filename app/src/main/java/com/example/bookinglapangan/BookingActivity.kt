@@ -4,6 +4,7 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +19,8 @@ class BookingActivity : AppCompatActivity() {
     private lateinit var btnBayar: Button
     private lateinit var tvDayName: TextView
     private lateinit var tvDate: TextView
-    private lateinit var btnNotif: TextView
-    private lateinit var btnProfile: TextView
+    private lateinit var btnNotif: ImageView
+    private lateinit var btnProfile: ImageView
 
     private lateinit var adapter: LapanganAdapter
     private var selectedLapangan: Lapangan? = null
@@ -77,12 +78,16 @@ class BookingActivity : AppCompatActivity() {
 
         // ---- Event Notif ----
         btnNotif.setOnClickListener {
-            Toast.makeText(this, "Notifikasi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
+            // Uncomment jika NotificationActivity sudah dibuat
+            // val intent = Intent(this, NotificationActivity::class.java)
+            // startActivity(intent)
         }
 
         // ---- Event Profile ----
         btnProfile.setOnClickListener {
-            Toast.makeText(this, "Profil", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 

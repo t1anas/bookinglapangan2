@@ -41,13 +41,15 @@
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp">
 
-            <TextView
+            <ImageView
                 android:id="@+id/btnNotif"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="🔔"
-                android:textSize="20sp" />
+                android:padding="10dp"
+                android:src="@drawable/ic_notification"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Notifikasi" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -58,13 +60,15 @@
             app:cardCornerRadius="12dp"
             app:cardElevation="2dp">
 
-            <TextView
+            <ImageView
                 android:id="@+id/btnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="👤"
-                android:textSize="20sp" />
+                android:padding="10dp"
+                android:src="@drawable/ic_user"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Profil" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

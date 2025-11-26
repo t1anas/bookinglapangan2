@@ -7,7 +7,6 @@
     android:background="@color/white"
     android:padding="16dp">
 
-    <!-- Top Bar with Title and Icons -->
     <LinearLayout
         android:id="@+id/topBarLayout"
         android:layout_width="match_parent"
@@ -16,7 +15,6 @@
         android:gravity="center_vertical"
         android:paddingBottom="16dp">
 
-        <!-- Title -->
         <TextView
             android:id="@+id/txtRiwayatTitle"
             android:layout_width="0dp"
@@ -27,32 +25,31 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <!-- Notification Icon -->
-        <TextView
-            android:id="@+id/iconNotification"
+        <ImageView
+            android:id="@+id/btnNotification"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="🔔"
-            android:textSize="20sp"
-            android:gravity="center"
+            android:src="@drawable/ic_notification"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
             android:background="@drawable/circle_background"
             android:layout_marginEnd="12dp"
             android:contentDescription="Notifikasi" />
 
-        <!-- Profile Icon -->
-        <TextView
-            android:id="@+id/iconProfile"
+        <ImageView
+            android:id="@+id/btnProfile"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="👤"
-            android:textSize="20sp"
-            android:gravity="center"
+            android:src="@drawable/ic_user"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
             android:background="@drawable/circle_background"
             android:contentDescription="Profil" />
 
     </LinearLayout>
 
-    <!-- RecyclerView for History List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRiwayat"
         android:layout_width="match_parent"

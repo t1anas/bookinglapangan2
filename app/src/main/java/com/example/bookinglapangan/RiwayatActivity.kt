@@ -1,6 +1,9 @@
 package com.example.bookinglapangan
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView // Tambah Import
+import android.widget.Toast // Tambah Import
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +12,8 @@ class RiwayatActivity : AppCompatActivity() {
 
     private lateinit var rvRiwayat: RecyclerView
     private lateinit var adapter: RiwayatAdapter
+    private lateinit var btnNotification: ImageView // Deklarasi ImageView
+    private lateinit var btnProfile: ImageView // Deklarasi ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +21,21 @@ class RiwayatActivity : AppCompatActivity() {
 
         rvRiwayat = findViewById(R.id.rvRiwayat)
         rvRiwayat.layoutManager = LinearLayoutManager(this)
+
+        // Inisialisasi ikon
+        btnNotification = findViewById(R.id.btnNotification)
+        btnProfile = findViewById(R.id.btnProfile)
+
+        // Event Listener untuk Notifikasi
+        btnNotification.setOnClickListener {
+            Toast.makeText(this, "Notifikasi Riwayat dibuka", Toast.LENGTH_SHORT).show()
+        }
+
+        // Event Listener untuk Profile (Sama seperti di MainActivity)
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
 
         val dataRiwayat = listOf(
             RiwayatModel(

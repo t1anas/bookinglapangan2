@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.google.android.material.card.MaterialCardView
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,8 +16,8 @@ class JadwalActivity : AppCompatActivity() {
 
     private lateinit var calendarView: CalendarView
     private lateinit var btnPesan: Button
-    private lateinit var btnNotif: TextView
-    private lateinit var btnProfile: TextView
+    private lateinit var btnNotif: ImageView
+    private lateinit var btnProfile: ImageView
     private lateinit var selectedDateCard: CardView
     private lateinit var tvSelectedDate: TextView
 
@@ -84,18 +84,16 @@ class JadwalActivity : AppCompatActivity() {
 
         // Notification button
         btnNotif.setOnClickListener {
-            Toast.makeText(this, "Notifikasi", Toast.LENGTH_SHORT).show()
-
-//             val intent = Intent(this, NotificationActivity::class.java)
-//             startActivity(intent)
+            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
+            // Uncomment jika NotificationActivity sudah dibuat
+            // val intent = Intent(this, NotificationActivity::class.java)
+            // startActivity(intent)
         }
 
         // Profile button
         btnProfile.setOnClickListener {
-            Toast.makeText(this, "Profil", Toast.LENGTH_SHORT).show()
-
-//             val intent = Intent(this, ProfileActivity::class.java)
-//             startActivity(intent)
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
@@ -20,6 +21,9 @@ class BayarActivity : AppCompatActivity() {
     private lateinit var txtHarga: TextView
     private lateinit var txtTotal: TextView
 
+    private lateinit var iconNotification: ImageView
+    private lateinit var iconProfile: ImageView
+
     private lateinit var radioGroup: RadioGroup
     private lateinit var btnBayar: Button
 
@@ -35,6 +39,9 @@ class BayarActivity : AppCompatActivity() {
         txtJam = findViewById(R.id.txtBayarJam)
         txtHarga = findViewById(R.id.txtBayarHarga)
         txtTotal = findViewById(R.id.txtBayarTotal)
+
+        iconNotification = findViewById(R.id.iconNotification)
+        iconProfile = findViewById(R.id.iconProfile)
 
         radioGroup = findViewById(R.id.radioMetode)
         btnBayar = findViewById(R.id.btnBayarSekarang)
@@ -70,6 +77,9 @@ class BayarActivity : AppCompatActivity() {
         txtHarga.text = hargaFormatted
         txtTotal.text = hargaFormatted
 
+        // Handle icon clicks
+        setupIconListeners()
+
         // Handle tombol bayar
         btnBayar.setOnClickListener {
             val selectedId = radioGroup.checkedRadioButtonId
@@ -89,6 +99,22 @@ class BayarActivity : AppCompatActivity() {
             intent.putExtra("NAMA_LAPANGAN", namaLapangan)
             intent.putExtra("TANGGAL", tanggal)
             intent.putExtra("JAM", jam)
+            startActivity(intent)
+        }
+    }
+
+    private fun setupIconListeners() {
+        // Notification icon click
+        iconNotification.setOnClickListener {
+            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
+            // Uncomment jika NotificationActivity sudah dibuat
+            // val intent = Intent(this, NotificationActivity::class.java)
+            // startActivity(intent)
+        }
+
+        // Profile icon click
+        iconProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
     }

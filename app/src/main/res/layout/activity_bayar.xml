@@ -31,27 +31,45 @@
                 android:textColor="#212121" />
 
             <!-- Notification Icon -->
-            <TextView
-                android:id="@+id/iconNotification"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="🔔"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:background="@drawable/circle_background"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardNotif"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:layout_marginEnd="12dp"
-                android:contentDescription="Notifikasi" />
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <ImageView
+                    android:id="@+id/iconNotification"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_notification"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Notifikasi" />
+            </androidx.cardview.widget.CardView>
 
             <!-- Profile Icon -->
-            <TextView
-                android:id="@+id/iconProfile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="👤"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:background="@drawable/circle_background"
-                android:contentDescription="Profil" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfile"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <ImageView
+                    android:id="@+id/iconProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_user"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Profil" />
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

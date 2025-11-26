@@ -4,41 +4,54 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.bookinglapangan.utils.GoogleAuthManager
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var googleAuthManager: GoogleAuthManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        googleAuthManager = GoogleAuthManager(this)
+
+        // Cek apakah user sudah login
+        if (!googleAuthManager.isUserLoggedIn()) {
+            // Redirect ke Login jika belum login
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
 
         // --- Ambil ID dari XML ---
         val txtNamaLapangan = findViewById<TextView>(R.id.txtNamaLapangan)
         val txtRating = findViewById<TextView>(R.id.txtRating)
         val txtJadwal = findViewById<TextView>(R.id.txtJadwal)
 
-        val iconNotification = findViewById<TextView>(R.id.iconNotification)
-        val iconProfile = findViewById<TextView>(R.id.iconProfile)
+        val btnNotification = findViewById<ImageView>(R.id.btnNotification)
+        val btnProfile = findViewById<ImageView>(R.id.btnProfile)
 
         val btnJadwal = findViewById<Button>(R.id.btnJadwal)
         val btnRiwayat = findViewById<Button>(R.id.btnRiwayat)
 
-
         // ---- Event Listener ----
 
-        iconNotification.setOnClickListener {
+        btnNotification.setOnClickListener {
             Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
         }
 
-        iconProfile.setOnClickListener {
-            Toast.makeText(this, "Profil dibuka", Toast.LENGTH_SHORT).show()
+        // Navigasi ke ProfileActivity
+        btnProfile.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         btnJadwal.setOnClickListener {
             Toast.makeText(this, "Silahkan Memilih jadwal", Toast.LENGTH_SHORT).show()
-
-            // --- INI YANG BENER: buka BookingActivity ---
             startActivity(Intent(this, JadwalActivity::class.java))
         }
 
