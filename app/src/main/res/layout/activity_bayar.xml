@@ -1,121 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="18dp">
+    android:background="#FFFFFF">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
+        <!-- HEADER -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pembayaran"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:paddingBottom="20dp"/>
+            android:textColor="#212121"
+            android:layout_marginBottom="20dp"/>
 
-        <!-- DETAIL PESANAN -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Detail Pesanan"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/txtBayarNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lapangan Futsal A"
-            android:textSize="16sp"
-            android:paddingTop="8dp"/>
-
-        <TextView
-            android:id="@+id/txtBayarTanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="14 November 2025"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/txtBayarJam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="09.00—10.00"
-            android:textSize="16sp"/>
-
-        <TextView
-            android:id="@+id/txtBayarHarga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rp. 75.000"
-            android:textSize="16sp"
-            android:paddingTop="8dp"/>
-
-        <!-- TOTAL -->
-        <TextView
-            android:id="@+id/txtBayarTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total: Rp. 75.000"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:paddingTop="20dp"/>
-
-        <!-- METODE PEMBAYARAN -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Metode Pembayaran"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:paddingTop="20dp"/>
-
-        <RadioGroup
-            android:id="@+id/radioMetode"
+        <!-- CARD DETAIL PESANAN -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp">
+            android:layout_marginBottom="16dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="#FFFFFF">
 
-            <RadioButton
-                android:id="@+id/rbDana"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dana" />
+                android:padding="16dp">
 
-            <RadioButton
-                android:id="@+id/rbGopay"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail Pesanan"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:layout_marginBottom="12dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lapangan"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/txtBayarNama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lapangan Futsal A"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tanggal"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/txtBayarTanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="14 November 2025"
+                        android:textSize="14sp"
+                        android:textColor="#212121"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Jam"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/txtBayarJam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="09.00—10.00"
+                        android:textSize="14sp"
+                        android:textColor="#212121"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E0E0E0"
+                    android:layout_marginVertical="12dp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Harga"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/txtBayarHarga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 75.000"
+                        android:textSize="14sp"
+                        android:textColor="#212121"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#E8F5E9"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Pembayaran"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#212121"/>
+
+                    <TextView
+                        android:id="@+id/txtBayarTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 75.000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#0F9D58"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CARD METODE PEMBAYARAN -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="GoPay" />
+                android:padding="16dp">
 
-            <RadioButton
-                android:id="@+id/rbOvo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="OVO" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Metode Pembayaran"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#212121"
+                    android:layout_marginBottom="12dp"/>
 
-            <RadioButton
-                android:id="@+id/rbTransfer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Transfer Bank" />
-        </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/radioMetode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <!-- BUTTON -->
+                    <RadioButton
+                        android:id="@+id/rbDana"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dana"
+                        android:textSize="16sp"
+                        android:textColor="#212121"
+                        android:padding="12dp"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginHorizontal="12dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbGopay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="GoPay"
+                        android:textSize="16sp"
+                        android:textColor="#212121"
+                        android:padding="12dp"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginHorizontal="12dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbOvo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="OVO"
+                        android:textSize="16sp"
+                        android:textColor="#212121"
+                        android:padding="12dp"
+                        android:background="?android:attr/selectableItemBackground"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E0E0E0"
+                        android:layout_marginHorizontal="12dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rbTransfer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Transfer Bank"
+                        android:textSize="16sp"
+                        android:textColor="#212121"
+                        android:padding="12dp"
+                        android:background="?android:attr/selectableItemBackground"/>
+                </RadioGroup>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- BUTTON BAYAR -->
         <Button
             android:id="@+id/btnBayarSekarang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bayar Sekarang"
             android:textStyle="bold"
-            android:padding="12dp"
+            android:textSize="16sp"
+            android:padding="16dp"
             android:backgroundTint="#0F9D58"
             android:textColor="#FFFFFF"
-            android:layout_marginTop="25dp"/>
+            android:elevation="4dp"/>
+
     </LinearLayout>
 
 </ScrollView>

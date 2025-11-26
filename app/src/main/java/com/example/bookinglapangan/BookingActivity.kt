@@ -1,5 +1,6 @@
 package com.example.bookinglapangan
 
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.Button
@@ -19,6 +20,9 @@ class BookingActivity : AppCompatActivity() {
     private lateinit var tvDate: TextView
     private lateinit var btnNotif: TextView
     private lateinit var btnProfile: TextView
+
+    private lateinit var adapter: LapanganAdapter
+    private var selectedLapangan: Lapangan? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +46,33 @@ class BookingActivity : AppCompatActivity() {
             Lapangan("Lapangan Futsal B", "Rp. 75.000/jam", "07.00-08.00", false, R.drawable.lapangan2),
         )
 
-        // ---- Pasang Adapter ----
+        // ---- Pasang Adapter dengan callback selection ----
+        adapter = LapanganAdapter(data) { lapangan ->
+            // Callback ketika item diklik
+            selectedLapangan = lapangan
+            updateBayarButton()
+        }
+
         rvLapangan.layoutManager = LinearLayoutManager(this)
-        rvLapangan.adapter = LapanganAdapter(data)
+        rvLapangan.adapter = adapter
 
         // ---- Event Bayar ----
         btnBayar.setOnClickListener {
-            Toast.makeText(this, "Menuju Pembayaran...", Toast.LENGTH_SHORT).show()
-            // atau langsung startActivity(Intent(this, BayarActivity::class.java))
+            if (selectedLapangan != null) {
+                if (selectedLapangan!!.isBooked) {
+                    Toast.makeText(this, "Lapangan sudah dibooking!", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Kirim data ke BayarActivity
+                    val intent = Intent(this, BayarActivity::class.java)
+                    intent.putExtra("NAMA_LAPANGAN", selectedLapangan!!.nama)
+                    intent.putExtra("HARGA", selectedLapangan!!.harga)
+                    intent.putExtra("JAM", selectedLapangan!!.jam)
+                    intent.putExtra("TANGGAL", tvDate.text.toString())
+                    startActivity(intent)
+                }
+            } else {
+                Toast.makeText(this, "Pilih lapangan terlebih dahulu!", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // ---- Event Notif ----
@@ -60,6 +83,25 @@ class BookingActivity : AppCompatActivity() {
         // ---- Event Profile ----
         btnProfile.setOnClickListener {
             Toast.makeText(this, "Profil", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateBayarButton() {
+        // Update tampilan button berdasarkan status seleksi
+        if (selectedLapangan != null) {
+            if (selectedLapangan!!.isBooked) {
+                btnBayar.text = "Lapangan Sudah Dibooking"
+                btnBayar.isEnabled = false
+                btnBayar.alpha = 0.5f
+            } else {
+                btnBayar.text = "Lanjut ke Pembayaran"
+                btnBayar.isEnabled = true
+                btnBayar.alpha = 1.0f
+            }
+        } else {
+            btnBayar.text = "Pilih Lapangan"
+            btnBayar.isEnabled = false
+            btnBayar.alpha = 0.5f
         }
     }
 
@@ -74,7 +116,6 @@ class BookingActivity : AppCompatActivity() {
         if (selectedDateMillis != 0L) {
             calendar.timeInMillis = selectedDateMillis
         }
-        // Jika tidak ada, otomatis pakai tanggal hari ini (sudah default dari getInstance)
 
         // Format nama hari (Senin, Selasa, dst)
         val dayFormat = SimpleDateFormat("EEEE", Locale("id", "ID"))

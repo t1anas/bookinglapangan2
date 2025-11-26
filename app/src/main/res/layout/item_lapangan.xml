@@ -1,61 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardLapangan"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    android:elevation="4dp"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:padding="8dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeWidth="0dp"
+    app:strokeColor="@android:color/transparent"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:orientation="horizontal"
+        android:padding="12dp">
 
+        <!-- Gambar Lapangan -->
         <ImageView
             android:id="@+id/imgLapangan"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:background="#DDDDDD" />
+            android:background="#E0E0E0" />
 
-        <TextView
-            android:id="@+id/txtNama"
-            android:layout_width="wrap_content"
+        <!-- Info Lapangan -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Lapangan Futsal A"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:paddingTop="6dp" />
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtHarga"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rp. 75.000/jam"
-            android:textSize="14sp"
-            android:textColor="#1E88E5"
-            android:paddingTop="2dp" />
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lapangan Futsal A"
+                android:textStyle="bold"
+                android:textColor="#212121"
+                android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/txtStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tersedia"
-            android:textSize="13sp"
-            android:textColor="#4CAF50"
-            android:paddingTop="4dp" />
+            <TextView
+                android:id="@+id/tvJam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13.00-14.00"
+                android:textColor="#757575"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
 
-        <TextView
-            android:id="@+id/txtJam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="13.00-14.00"
-            android:textSize="13sp"
-            android:textColor="#555555"
-            android:paddingTop="2dp" />
+            <TextView
+                android:id="@+id/tvHarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 75.000/jam"
+                android:textColor="#0070BB"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tersedia"
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:background="#E8F5E9"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:layout_marginTop="6dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

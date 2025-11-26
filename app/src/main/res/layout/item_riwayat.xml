@@ -5,13 +5,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="5dp">
+    card_view:cardElevation="4dp"
+    card_view:cardBackgroundColor="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="16dp">
 
         <!-- Bagian Gambar & Info -->
         <LinearLayout
@@ -19,38 +20,61 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- Gambar Lapangan -->
             <ImageView
                 android:id="@+id/imgRiwayat"
-                android:layout_width="110dp"
-                android:layout_height="80dp"
-                android:scaleType="centerCrop" />
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:background="#E0E0E0" />
 
+            <!-- Info Lapangan -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingStart="12dp"
+                android:layout_marginStart="12dp"
                 android:orientation="vertical">
+
+                <!-- Status Badge -->
+                <TextView
+                    android:id="@+id/txtStatusRiwayat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selesai"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:background="#4CAF50"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:id="@+id/txtNamaRiwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+                    android:textColor="#212121"
                     android:textSize="16sp"
-                    android:text="Nama Lapangan" />
+                    android:text="Nama Lapangan"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
 
                 <TextView
                     android:id="@+id/txtTanggalRiwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="14 Nov 2025"
-                    android:textSize="13sp" />
+                    android:textColor="#757575"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
 
                 <TextView
                     android:id="@+id/txtJamRiwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#757575"
                     android:text="10.00—11.00"
                     android:textSize="13sp" />
 
@@ -58,25 +82,17 @@
                     android:id="@+id/txtHargaRiwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp. 75.000/jam"
+                    android:text="Rp 75.000/jam"
+                    android:textColor="#0070BB"
                     android:textStyle="bold"
-                    android:textSize="13sp"
-                    android:paddingTop="6dp" />
+                    android:textSize="14sp"
+                    android:layout_marginTop="6dp" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtStatusRiwayat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selesai"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                android:padding="4dp" />
-
         </LinearLayout>
 
-        <!-- 🔥 TOMBOL BAYAR SEKARANG -->
+        <!-- Tombol Bayar Sekarang -->
         <Button
             android:id="@+id/btnBayarRiwayat"
             android:layout_width="match_parent"
@@ -85,8 +101,8 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:backgroundTint="#0F9D58"
-            android:layout_marginTop="10dp"
-            android:padding="10dp" />
+            android:layout_marginTop="12dp"
+            android:padding="12dp" />
 
     </LinearLayout>
 
