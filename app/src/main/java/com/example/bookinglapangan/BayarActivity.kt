@@ -1,12 +1,16 @@
 package com.example.bookinglapangan
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.text.NumberFormat
+import java.util.Locale
 
 class BayarActivity : AppCompatActivity() {
 
@@ -19,11 +23,13 @@ class BayarActivity : AppCompatActivity() {
     private lateinit var radioGroup: RadioGroup
     private lateinit var btnBayar: Button
 
+    private var hargaValue: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bayar)
 
-        // Ambil ID
+        // Inisialisasi Views
         txtNama = findViewById(R.id.txtBayarNama)
         txtTanggal = findViewById(R.id.txtBayarTanggal)
         txtJam = findViewById(R.id.txtBayarJam)
@@ -33,13 +39,38 @@ class BayarActivity : AppCompatActivity() {
         radioGroup = findViewById(R.id.radioMetode)
         btnBayar = findViewById(R.id.btnBayarSekarang)
 
-        // Dummy dari riwayat (nantinya bisa dikirim lewat Intent)
-        txtNama.text = "Lapangan Futsal A"
-        txtTanggal.text = "14 Nov 2025"
-        txtJam.text = "09.00–10.00"
-        txtHarga.text = "Rp. 75.000"
-        txtTotal.text = "Rp. 75.000"
+        // Ambil data dari Intent
+        val namaLapangan = intent.getStringExtra("NAMA_LAPANGAN") ?: "Tidak ada data"
+        val tanggal = intent.getStringExtra("TANGGAL") ?: "-"
+        val jam = intent.getStringExtra("JAM") ?: "-"
 
+        // Ambil harga sebagai Int
+        hargaValue = intent.getIntExtra("HARGA", 0)
+
+        // Jika 0, ambil sebagai String lalu parsing
+        if (hargaValue == 0) {
+            val hargaString = intent.getStringExtra("HARGA") ?: "0"
+            hargaValue = parseHarga(hargaString)
+        }
+
+        // Format harga ke Rupiah
+        val formatRupiah = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
+        val hargaFormatted = formatRupiah.format(hargaValue)
+
+        // DEBUG: Cek apakah data masuk
+        Log.d("BayarActivity", "Nama: $namaLapangan")
+        Log.d("BayarActivity", "Tanggal: $tanggal")
+        Log.d("BayarActivity", "Jam: $jam")
+        Log.d("BayarActivity", "Harga: $hargaValue")
+
+        // Tampilkan data
+        txtNama.text = namaLapangan
+        txtTanggal.text = tanggal
+        txtJam.text = jam
+        txtHarga.text = hargaFormatted
+        txtTotal.text = hargaFormatted
+
+        // Handle tombol bayar
         btnBayar.setOnClickListener {
             val selectedId = radioGroup.checkedRadioButtonId
 
@@ -51,7 +82,29 @@ class BayarActivity : AppCompatActivity() {
             val radio: RadioButton = findViewById(selectedId)
             val metode = radio.text.toString()
 
-            Toast.makeText(this, "Pembayaran dengan $metode berhasil!", Toast.LENGTH_LONG).show()
+            // Redirect ke halaman simulasi pembayaran
+            val intent = Intent(this, PembayaranActivity::class.java)
+            intent.putExtra("METODE", metode)
+            intent.putExtra("TOTAL", hargaFormatted)
+            intent.putExtra("NAMA_LAPANGAN", namaLapangan)
+            intent.putExtra("TANGGAL", tanggal)
+            intent.putExtra("JAM", jam)
+            startActivity(intent)
+        }
+    }
+
+    // Helper function untuk parsing harga dari String
+    private fun parseHarga(hargaString: String): Int {
+        return try {
+            // Hapus "Rp", ".", dan spasi, lalu convert ke Int
+            hargaString.replace("Rp", "")
+                .replace(".", "")
+                .replace(",", "")
+                .replace(" ", "")
+                .trim()
+                .toIntOrNull() ?: 0
+        } catch (e: Exception) {
+            0
         }
     }
 }

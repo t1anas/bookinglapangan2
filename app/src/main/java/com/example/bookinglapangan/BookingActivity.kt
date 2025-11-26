@@ -36,14 +36,14 @@ class BookingActivity : AppCompatActivity() {
         btnNotif = findViewById(R.id.btnNotif)
         btnProfile = findViewById(R.id.btnProfile)
 
-        // ---- Set tanggal dari JadwalActivity atau default hari ini ----
+        // ---- Set tanggal ----
         setCurrentDate()
 
         // ---- Dummy Data ----
         val data = listOf(
-            Lapangan("Lapangan Futsal A", "Rp. 75.000/jam", "13.00-14.00", false, R.drawable.lapangan1),
-            Lapangan("Lapangan Futsal A", "Rp. 75.000/jam", "15.00-16.00", true, R.drawable.lapangan1),
-            Lapangan("Lapangan Futsal B", "Rp. 75.000/jam", "07.00-08.00", false, R.drawable.lapangan2),
+            Lapangan("Lapangan Futsal A", 75000, "13.00-14.00", false, R.drawable.lapangan1),
+            Lapangan("Lapangan Futsal A", 75000, "15.00-16.00", true, R.drawable.lapangan1),
+            Lapangan("Lapangan Futsal B", 75000, "07.00-08.00", false, R.drawable.lapangan2),
         )
 
         // ---- Pasang Adapter dengan callback selection ----
@@ -102,31 +102,36 @@ class BookingActivity : AppCompatActivity() {
             btnBayar.text = "Pilih Lapangan"
             btnBayar.isEnabled = false
             btnBayar.alpha = 0.5f
+
+            val intent = Intent(this, BayarActivity::class.java)
+            intent.putExtra("NAMA_LAPANGAN", "Lapangan Futsal A")
+            intent.putExtra("TANGGAL", "14 Nov 2025")
+            intent.putExtra("JAM", "09.00–10.00")
+            intent.putExtra("HARGA", 75000)
+            startActivity(intent)
         }
     }
 
     private fun setCurrentDate() {
-        // Ambil data tanggal dari JadwalActivity (jika ada)
+        // Ambil data tanggal dari JadwalActivity
         val selectedDate = intent.getStringExtra("SELECTED_DATE")
         val selectedDateMillis = intent.getLongExtra("SELECTED_DATE_MILLIS", 0L)
 
         val calendar = Calendar.getInstance()
 
-        // Jika ada tanggal yang dipilih dari JadwalActivity, gunakan itu
         if (selectedDateMillis != 0L) {
             calendar.timeInMillis = selectedDateMillis
         }
 
-        // Format nama hari (Senin, Selasa, dst)
         val dayFormat = SimpleDateFormat("EEEE", Locale("id", "ID"))
         val dayName = dayFormat.format(calendar.time)
 
-        // Format tanggal lengkap (26 November 2025)
         val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale("id", "ID"))
         val dateString = dateFormat.format(calendar.time)
 
         // Set ke TextView
         tvDayName.text = dayName
         tvDate.text = dateString
+
     }
 }

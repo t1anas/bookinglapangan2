@@ -17,7 +17,6 @@ class RiwayatActivity : AppCompatActivity() {
         rvRiwayat = findViewById(R.id.rvRiwayat)
         rvRiwayat.layoutManager = LinearLayoutManager(this)
 
-        // 🔥 Data dengan status berbeda
         val dataRiwayat = listOf(
             RiwayatModel(
                 nama = "Lapangan Futsal A",

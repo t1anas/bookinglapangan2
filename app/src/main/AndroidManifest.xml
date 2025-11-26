@@ -11,38 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookinglapangan">
-
-        <!-- RiwayatActivity -->
+        <activity
+            android:name=".PembayaranSuksesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PembayaranActivity"
+            android:exported="false" /> <!-- RiwayatActivity -->
         <activity
             android:name=".RiwayatActivity"
-            android:exported="false" />
-
-        <!-- JadwalActivity -->
+            android:exported="false" /> <!-- JadwalActivity -->
         <activity
             android:name=".JadwalActivity"
-            android:exported="false" />
-
-        <!-- BookingActivity -->
+            android:exported="false" /> <!-- BookingActivity -->
         <activity
             android:name=".BookingActivity"
-            android:exported="false" />
-
-        <!-- 🔥 TAMBAHKAN INI - BayarActivity -->
+            android:exported="false" /> <!-- 🔥 TAMBAHKAN INI - BayarActivity -->
         <activity
             android:name=".BayarActivity"
-            android:exported="false" />
-
-        <!-- LoginActivity - Layar Pertama -->
+            android:exported="false" /> <!-- LoginActivity - Layar Pertama -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity -->
+        </activity> <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />

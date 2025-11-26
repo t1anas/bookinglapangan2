@@ -36,7 +36,7 @@ class LapanganAdapter(
 
         holder.imgLapangan.setImageResource(item.gambar)
         holder.tvNama.text = item.nama
-        holder.tvHarga.text = item.harga
+        holder.tvHarga.text = "Rp. ${item.harga}"
         holder.tvJam.text = item.jam
 
         // Set status
