@@ -275,14 +275,14 @@
 
         <!-- Button PESAN -->
         <Button
-            android:id="@+id/btnPesan"
+            android:id="@+id/btnJadwal"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="#FFFFFF"
-            android:text="Pesan Sekarang"
+            android:text="Pilih Jadwal"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="16sp"
@@ -312,7 +312,7 @@
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnPesan" />
+            app:layout_constraintTop_toBottomOf="@id/btnJadwal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

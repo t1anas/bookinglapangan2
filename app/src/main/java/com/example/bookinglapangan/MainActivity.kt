@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val iconNotification = findViewById<TextView>(R.id.iconNotification)
         val iconProfile = findViewById<TextView>(R.id.iconProfile)
 
-        val btnPesan = findViewById<Button>(R.id.btnPesan)
+        val btnJadwal = findViewById<Button>(R.id.btnJadwal)
         val btnRiwayat = findViewById<Button>(R.id.btnRiwayat)
 
 
@@ -35,11 +35,11 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Profil dibuka", Toast.LENGTH_SHORT).show()
         }
 
-        btnPesan.setOnClickListener {
-            Toast.makeText(this, "Menu Pemesanan dibuka", Toast.LENGTH_SHORT).show()
+        btnJadwal.setOnClickListener {
+            Toast.makeText(this, "Silahkan Memilih jadwal", Toast.LENGTH_SHORT).show()
 
             // --- INI YANG BENER: buka BookingActivity ---
-            startActivity(Intent(this, BookingActivity::class.java))
+            startActivity(Intent(this, JadwalActivity::class.java))
         }
 
         btnRiwayat.setOnClickListener {

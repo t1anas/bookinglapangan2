@@ -56,5 +56,6 @@ class RiwayatActivity : AppCompatActivity() {
         rv.adapter = RiwayatAdapter(data) {
             Toast.makeText(this, "Klik: ${it.nama}", Toast.LENGTH_SHORT).show()
         }
+        
     }
 }
