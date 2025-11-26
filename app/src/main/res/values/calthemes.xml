@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme untuk CalendarView -->
+    <style name="CustomCalendarViewTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Warna text header bulan/tahun -->
+        <item name="android:textColorPrimary">#000000</item>
+
+        <!-- Warna background -->
+        <item name="android:colorBackground">#FFFFFF</item>
+
+        <!-- Warna text tanggal -->
+        <item name="android:textColorSecondary">#000000</item>
+
+        <!-- Warna tanggal yang dipilih -->
+        <item name="colorAccent">#2E7D32</item>
+        <item name="colorPrimary">#2E7D32</item>
+
+        <!-- Warna text di control (arrow, dll) -->
+        <item name="android:textColor">#000000</item>
+    </style>
+</resources>

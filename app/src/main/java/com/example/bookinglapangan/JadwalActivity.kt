@@ -72,24 +72,13 @@ class JadwalActivity : AppCompatActivity() {
         // Pesan button
         btnPesan.setOnClickListener {
             if (selectedDate.isNotEmpty()) {
-                // TODO: Navigate to booking confirmation or next step
-                Toast.makeText(
-                    this,
-                    "Melanjutkan pemesanan untuk tanggal: $selectedDate",
-                    Toast.LENGTH_LONG
-                ).show()
-
-                // Example: Pass data to next activity
-                 val intent = Intent(this, BookingActivity::class.java)
-                 intent.putExtra("SELECTED_DATE", selectedDate)
-                 intent.putExtra("SELECTED_DATE_MILLIS", selectedDateMillis)
-                 startActivity(intent)
+                val intent = Intent(this, BookingActivity::class.java)
+                // Kirim tanggal yang dipilih
+                intent.putExtra("SELECTED_DATE", selectedDate)
+                intent.putExtra("SELECTED_DATE_MILLIS", selectedDateMillis)
+                startActivity(intent)
             } else {
-                Toast.makeText(
-                    this,
-                    "Silakan pilih tanggal terlebih dahulu",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Silakan pilih tanggal terlebih dahulu", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -101,11 +101,9 @@
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
-                android:layout_height="320dp"
+                android:layout_height="330dp"
                 android:background="#FFFFFF"
-                android:dateTextAppearance="@style/CalendarDateText"
-                android:theme="@style/CalendarViewCustom"
-                android:weekDayTextAppearance="@style/CalendarWeekText"
+                android:theme="@style/CustomCalendarViewTheme"
                 android:showWeekNumber="false"
                 android:firstDayOfWeek="1" />
         </LinearLayout>
