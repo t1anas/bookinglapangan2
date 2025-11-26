@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Style yang sudah ada (jangan dihapus) -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Your existing app theme -->
     </style>
 
     <style name="CalendarViewCustom" parent="Theme.AppCompat">
