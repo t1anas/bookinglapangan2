@@ -39,7 +39,7 @@
                 <!-- Status Badge -->
                 <TextView
                     android:id="@+id/txtStatusRiwayat"
-                    android:layout_width="wrap_content"
+                    android:layout_width="57sp"
                     android:layout_height="wrap_content"
                     android:text="Selesai"
                     android:textColor="#FFFFFF"

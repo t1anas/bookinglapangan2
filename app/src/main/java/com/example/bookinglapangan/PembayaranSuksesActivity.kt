@@ -20,4 +20,3 @@ class PembayaranSuksesActivity : AppCompatActivity() {
     }
 }
 
-private fun Button.setOnClickListener(function: () -> Unit) {}
