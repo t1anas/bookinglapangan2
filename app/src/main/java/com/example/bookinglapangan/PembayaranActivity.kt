@@ -41,11 +41,11 @@ class PembayaranActivity : AppCompatActivity() {
         // Set icon dan instruksi berdasarkan metode
         when (metode) {
             "GoPay" -> {
-                imgMetode.setImageResource(android.R.drawable.ic_dialog_info) // Ganti dengan icon GoPay
+                imgMetode.setImageResource(R.drawable.ic_gopay) // Ganti dengan icon GoPay
                 txtInstruksi.text = "1. Buka aplikasi Gojek\n2. Pilih menu GoPay\n3. Scan QR Code atau masukkan kode pembayaran\n4. Konfirmasi pembayaran"
             }
             "OVO" -> {
-                imgMetode.setImageResource(android.R.drawable.ic_dialog_info) // Ganti dengan icon OVO
+                imgMetode.setImageResource(R.drawable.ic_ovo) // Ganti dengan icon OVO
                 txtInstruksi.text = "1. Buka aplikasi OVO\n2. Pilih menu Scan\n3. Scan QR Code\n4. Masukkan PIN OVO Anda"
             }
             "Dana" -> {
