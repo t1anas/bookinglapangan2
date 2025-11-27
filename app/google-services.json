@@ -14,11 +14,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "145778713378-3qjrfuvm1to03100ii9mi8buja3kep3n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookinglapangan",
+            "certificate_hash": "671148109df134145dde8032a105148c1c64b6f0"
+          }
+        },
+        {
           "client_id": "145778713378-kvtb3i3k4aaqpa1rsqj3f8an416nv92v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.bookinglapangan",
             "certificate_hash": "2643d901b5f9ca53ccbb8fdbe1465739a02aa56e"
+          }
+        },
+        {
+          "client_id": "145778713378-nbaubjljfb1md5mtaegsc1ap198g4723.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bookinglapangan",
+            "certificate_hash": "5ac5af13ed7b7f803052fe1fd07ccc44ea732869"
           }
         },
         {
