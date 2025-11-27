@@ -49,11 +49,11 @@ class PembayaranActivity : AppCompatActivity() {
                 txtInstruksi.text = "1. Buka aplikasi OVO\n2. Pilih menu Scan\n3. Scan QR Code\n4. Masukkan PIN OVO Anda"
             }
             "Dana" -> {
-                imgMetode.setImageResource(android.R.drawable.ic_dialog_info) // Ganti dengan icon Dana
+                imgMetode.setImageResource(R.drawable.ic_dana) // Ganti dengan icon Dana
                 txtInstruksi.text = "1. Buka aplikasi DANA\n2. Pilih Scan QR\n3. Arahkan ke QR Code\n4. Konfirmasi dengan PIN"
             }
             "Transfer Bank" -> {
-                imgMetode.setImageResource(android.R.drawable.ic_dialog_info)
+                imgMetode.setImageResource(R.drawable.ic_transfer)
                 txtInstruksi.text = "Transfer ke:\nBank BCA\nNo. Rek: 1234567890\nA/N: Booking Lapangan\n\nTotal: $total"
             }
             else -> {
