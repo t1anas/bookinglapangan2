@@ -72,7 +72,7 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <!-- Calendar Card -->
+    <!-- Date Picker Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/calendarCard"
         android:layout_width="0dp"
@@ -89,27 +89,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Pilih Tanggal yang Anda Inginkan"
                 android:textColor="#2C3E50"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <CalendarView
-                android:id="@+id/calendarView"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:textAlignment="center"
+                android:text="Klik tombol di bawah untuk memilih tanggal booking"
+                android:textColor="#7F8C8D"
+                android:textSize="14sp" />
+
+            <!-- Button untuk buka DatePicker Dialog -->
+            <Button
+                android:id="@+id/btnPilihTanggal"
                 android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:background="#FFFFFF"
-                android:theme="@style/CustomCalendarViewTheme"
-                android:showWeekNumber="false"
-                android:firstDayOfWeek="1" />
+                android:layout_height="80dp"
+                android:backgroundTint="#4CAF50"
+                android:drawableLeft="@android:drawable/ic_menu_month"
+                android:drawablePadding="12dp"
+                android:drawableTint="#FFFFFF"
+                android:text="Pilih Tanggal"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -119,7 +136,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:cardBackgroundColor="#E8F5E9"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
