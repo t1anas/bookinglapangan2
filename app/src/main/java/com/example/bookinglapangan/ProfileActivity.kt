@@ -22,6 +22,9 @@ class ProfileActivity : AppCompatActivity() {
 
         googleAuthManager = GoogleAuthManager(this)
 
+        // Setup Fragment Back Stack Listener
+        setupFragmentBackStackListener()
+
         // Initialize views
         val btnBack = findViewById<ImageView>(R.id.btnBack)
         val btnNotification = findViewById<ImageView>(R.id.btnNotification)
@@ -45,10 +48,9 @@ class ProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "Notifikasi", Toast.LENGTH_SHORT).show()
         }
 
-        // Ketentuan Pengguna
+        // Ketentuan Pengguna - Load Fragment
         btnKetentuan.setOnClickListener {
-            Toast.makeText(this, "Ketentuan Pengguna", Toast.LENGTH_SHORT).show()
-            // Anda bisa membuka activity baru untuk menampilkan ketentuan
+            loadKetentuanFragment()
         }
 
         // Hubungi Kami
@@ -61,6 +63,39 @@ class ProfileActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {
             showLogoutConfirmationDialog()
         }
+    }
+
+    private fun setupFragmentBackStackListener() {
+        supportFragmentManager.addOnBackStackChangedListener {
+            if (supportFragmentManager.backStackEntryCount == 0) {
+                // Tidak ada fragment di back stack, tampilkan profile layout
+                showProfileLayout()
+            }
+        }
+    }
+
+    private fun showProfileLayout() {
+        findViewById<androidx.fragment.app.FragmentContainerView>(R.id.fragmentContainer).visibility =
+            android.view.View.GONE
+
+        findViewById<androidx.cardview.widget.CardView>(R.id.profileCard).visibility =
+            android.view.View.VISIBLE
+        findViewById<LinearLayout>(R.id.menuLayout).visibility =
+            android.view.View.VISIBLE
+        findViewById<LinearLayout>(R.id.headerLayout).visibility =
+            android.view.View.VISIBLE
+    }
+
+    private fun hideProfileLayout() {
+        findViewById<androidx.cardview.widget.CardView>(R.id.profileCard).visibility =
+            android.view.View.GONE
+        findViewById<LinearLayout>(R.id.menuLayout).visibility =
+            android.view.View.GONE
+        findViewById<LinearLayout>(R.id.headerLayout).visibility =
+            android.view.View.GONE
+
+        findViewById<androidx.fragment.app.FragmentContainerView>(R.id.fragmentContainer).visibility =
+            android.view.View.VISIBLE
     }
 
     private fun loadUserData(
@@ -85,6 +120,26 @@ class ProfileActivity : AppCompatActivity() {
                     .error(R.drawable.ic_user_placeholder)
                     .into(imgProfile)
             }
+        }
+    }
+
+    private fun loadKetentuanFragment() {
+        hideProfileLayout()
+
+        // Load Fragment
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, KetentuanFragment.newInstance())
+            .addToBackStack("ketentuan")
+            .commit()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            // Pop fragment - listener akan handle show/hide layout
+            supportFragmentManager.popBackStack()
+        } else {
+            // Jika tidak ada fragment, tutup activity
+            super.onBackPressed()
         }
     }
 
