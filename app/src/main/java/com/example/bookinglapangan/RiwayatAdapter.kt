@@ -40,17 +40,17 @@ class RiwayatAdapter(private val data: List<RiwayatModel>) :
         holder.harga.text = item.harga
         holder.status.text = item.status
 
-        // 🔥 LOGIKA: Sembunyikan tombol jika status "Selesai" atau "Berlangsung"
-        if (item.status == "Selesai" || item.status == "Berlangsung") {
+        //Sembunyikan tombol jika status "Selesai" atau "Berlangsung"
+        if (item.status == "Akan datang" || item.status == "Berlangsung") {
             holder.btnBayar.visibility = View.GONE
         } else {
             holder.btnBayar.visibility = View.VISIBLE
         }
 
-        // 🔥 Klik tombol untuk ke BayarActivity
+        // Klik tombol untuk ke BayarActivity
         holder.btnBayar.setOnClickListener {
             val context = holder.itemView.context
-            val intent = Intent(context, BayarActivity::class.java)
+            val intent = Intent(context, BookingActivity::class.java)
 
             intent.putExtra("nama", item.nama)
             intent.putExtra("tanggal", item.tanggal)

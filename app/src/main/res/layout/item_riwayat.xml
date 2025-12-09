@@ -17,7 +17,7 @@
         <!-- Bagian Gambar & Info -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <!-- Gambar Lapangan -->
@@ -39,7 +39,7 @@
                 <!-- Status Badge -->
                 <TextView
                     android:id="@+id/txtStatusRiwayat"
-                    android:layout_width="57sp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Selesai"
                     android:textColor="#FFFFFF"
@@ -97,7 +97,7 @@
             android:id="@+id/btnBayarRiwayat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bayar Sekarang"
+            android:text="Booking lagi"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:backgroundTint="#0F9D58"
