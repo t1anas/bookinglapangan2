@@ -65,9 +65,11 @@ class JadwalActivity : AppCompatActivity() {
             }
         }
 
-        // Notification button
+        // Notification button (PERBAIKAN DISINI)
         btnNotif.setOnClickListener {
-            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("OPEN_NOTIFICATION", true)
+            startActivity(intent)
         }
 
         // Profile button

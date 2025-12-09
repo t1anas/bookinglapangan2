@@ -76,12 +76,11 @@ class BookingActivity : AppCompatActivity() {
             }
         }
 
-        // ---- Event Notif ----
+        // ---- Event Notif (PERBAIKAN DISINI) ----
         btnNotif.setOnClickListener {
-            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
-            // Uncomment jika NotificationActivity sudah dibuat
-            // val intent = Intent(this, NotificationActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("OPEN_NOTIFICATION", true) // Buka langsung ke fragment notif
+            startActivity(intent)
         }
 
         // ---- Event Profile ----

@@ -104,12 +104,11 @@ class BayarActivity : AppCompatActivity() {
     }
 
     private fun setupIconListeners() {
-        // Notification icon click
+        // Notification icon click (PERBAIKAN DISINI)
         iconNotification.setOnClickListener {
-            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
-            // Uncomment jika NotificationActivity sudah dibuat
-            // val intent = Intent(this, NotificationActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("OPEN_NOTIFICATION", true) // Kirim sinyal buka notif
+            startActivity(intent)
         }
 
         // Profile icon click

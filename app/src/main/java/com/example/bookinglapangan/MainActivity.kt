@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         // Cek apakah user sudah login
         if (!googleAuthManager.isUserLoggedIn()) {
-            // Redirect ke Login jika belum login
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
@@ -40,8 +39,12 @@ class MainActivity : AppCompatActivity() {
 
         // ---- Event Listener ----
 
+        // Buka Notifikasi
         btnNotification.setOnClickListener {
-            Toast.makeText(this, "Notifikasi dibuka", Toast.LENGTH_SHORT).show()
+            // Pindah ke ProfileActivity dengan flag untuk buka fragment notifikasi
+            val intent = Intent(this, ProfileActivity::class.java)
+            intent.putExtra("OPEN_NOTIFICATION", true)
+            startActivity(intent)
         }
 
         // Navigasi ke ProfileActivity

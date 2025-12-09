@@ -40,12 +40,13 @@ class ProfileActivity : AppCompatActivity() {
 
         // Back button
         btnBack.setOnClickListener {
-            finish()
+            // UBAH DISINI: Panggil onBackPressed() agar logika di bawah jalan
+            onBackPressed()
         }
 
-        // Notification button
+        // Notification button - Load Fragment
         btnNotification.setOnClickListener {
-            Toast.makeText(this, "Notifikasi", Toast.LENGTH_SHORT).show()
+            loadNotificationFragment()
         }
 
         // Ketentuan Pengguna - Load Fragment
@@ -56,19 +57,37 @@ class ProfileActivity : AppCompatActivity() {
         // Hubungi Kami
         btnHubungi.setOnClickListener {
             Toast.makeText(this, "Hubungi Kami", Toast.LENGTH_SHORT).show()
-            // Anda bisa membuka intent untuk telepon atau WhatsApp
         }
 
         // Logout
         btnLogout.setOnClickListener {
             showLogoutConfirmationDialog()
         }
+
+        // Check jika dibuka dari intent dengan flag OPEN_NOTIFICATION
+        if (intent.getBooleanExtra("OPEN_NOTIFICATION", false)) {
+            loadNotificationFragment()
+        }
+    }
+
+    // --- TAMBAHAN LOGIKA BACK ---
+    override fun onBackPressed() {
+        // Cek apakah ini dibuka dari shortcut Notifikasi?
+        if (intent.getBooleanExtra("OPEN_NOTIFICATION", false)) {
+            finish() // Matikan Activity, balik ke Main
+        } else {
+            // Jika tidak, jalankan normal
+            if (supportFragmentManager.backStackEntryCount > 0) {
+                supportFragmentManager.popBackStack()
+            } else {
+                super.onBackPressed()
+            }
+        }
     }
 
     private fun setupFragmentBackStackListener() {
         supportFragmentManager.addOnBackStackChangedListener {
             if (supportFragmentManager.backStackEntryCount == 0) {
-                // Tidak ada fragment di back stack, tampilkan profile layout
                 showProfileLayout()
             }
         }
@@ -106,13 +125,9 @@ class ProfileActivity : AppCompatActivity() {
         val currentUser = googleAuthManager.getCurrentUser()
 
         if (currentUser != null) {
-            // Set nama
             txtUserName.text = currentUser.displayName ?: "User"
-
-            // Set email atau phone
             txtUserPhone.text = currentUser.email ?: currentUser.phoneNumber ?: "-"
 
-            // Load foto profil
             currentUser.photoUrl?.let { photoUrl ->
                 Glide.with(this)
                     .load(photoUrl)
@@ -123,24 +138,22 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadNotificationFragment() {
+        hideProfileLayout()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, NotificationFragment.newInstance())
+            .addToBackStack("notification")
+            .commit()
+    }
+
     private fun loadKetentuanFragment() {
         hideProfileLayout()
 
-        // Load Fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, KetentuanFragment.newInstance())
             .addToBackStack("ketentuan")
             .commit()
-    }
-
-    override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 0) {
-            // Pop fragment - listener akan handle show/hide layout
-            supportFragmentManager.popBackStack()
-        } else {
-            // Jika tidak ada fragment, tutup activity
-            super.onBackPressed()
-        }
     }
 
     private fun showLogoutConfirmationDialog() {
@@ -161,7 +174,6 @@ class ProfileActivity : AppCompatActivity() {
         googleAuthManager.signOut {
             Toast.makeText(this, "Berhasil logout", Toast.LENGTH_SHORT).show()
 
-            // Kembali ke LoginActivity
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
