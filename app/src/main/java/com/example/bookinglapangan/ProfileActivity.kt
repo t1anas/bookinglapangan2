@@ -56,7 +56,12 @@ class ProfileActivity : AppCompatActivity() {
 
         // Hubungi Kami
         btnHubungi.setOnClickListener {
-            Toast.makeText(this, "Hubungi Kami", Toast.LENGTH_SHORT).show()
+            val phone = "6282252990791"
+            val url = "https://wa.me/$phone"
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = android.net.Uri.parse(url)
+            startActivity(intent)
         }
 
         // Logout
