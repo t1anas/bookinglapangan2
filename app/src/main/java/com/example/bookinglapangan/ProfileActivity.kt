@@ -40,7 +40,7 @@ class ProfileActivity : AppCompatActivity() {
 
         // Back button
         btnBack.setOnClickListener {
-            // UBAH DISINI: Panggil onBackPressed() agar logika di bawah jalan
+            //Panggil onBackPressed() agar logika di bawah jalan
             onBackPressed()
         }
 
