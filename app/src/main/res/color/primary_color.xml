@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:color="@color/black"/>
+    <!-- Item yang dipilih -->
+    <item android:color="#000000" android:state_checked="true"/>
+    <!-- Item tidak dipilih -->
+    <item android:color="#B0B0B0"/>
 </selector>
