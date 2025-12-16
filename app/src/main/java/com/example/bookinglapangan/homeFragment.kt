@@ -13,8 +13,6 @@ import com.example.bookinglapangan.utils.GoogleAuthManager
 
 class homeFragment : Fragment() {
 
-    private lateinit var googleAuthManager: GoogleAuthManager
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,15 +23,6 @@ class homeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inisialisasi GoogleAuthManager pakai requireContext()
-        googleAuthManager = GoogleAuthManager(requireContext())
-
-        // Jika belum login -> pindah ke LoginActivity
-        if (!googleAuthManager.isUserLoggedIn()) {
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
-            requireActivity().finish()
-            return
-        }
 
         // Ambil ID dari layout fragment
         val btnNotification = view.findViewById<ImageView>(R.id.btnNotification)

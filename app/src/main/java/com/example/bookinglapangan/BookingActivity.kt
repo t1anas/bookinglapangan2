@@ -76,7 +76,6 @@ class BookingActivity : AppCompatActivity() {
             }
         }
 
-        // ---- Event Notif (PERBAIKAN DISINI) ----
         btnNotif.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             intent.putExtra("OPEN_NOTIFICATION", true) // Buka langsung ke fragment notif
